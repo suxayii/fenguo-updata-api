@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="json-content"></div>
+
+    <script>
+        fetch('./updata/IG.json')
+            .then(response => response.json())
+            .then(data => {
+                const jsonContent = document.getElementById('json-content');
+                jsonContent.innerText = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                console.error('Error fetching JSON data:', error);
+            });
+    </script>
+</body>
+</html>
